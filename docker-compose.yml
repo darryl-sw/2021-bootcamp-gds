@@ -1,27 +1,53 @@
+# version: '3.0'
+
+# services:
+#   frontend:
+#     build: ./frontend
+#     command: "npm start"
+#     environment:
+#       NODE_ENV: development
+#       APP_URL: http://localhost:3000
+#       API_URL: http://backend:3001
+#     volumes:
+#       - ./frontend/src:/home/node/app/src
+#     ports:
+#       - 3000:3000
+  
+#   backend:
+#     build: ./backend
+#     command: "npm start"
+#     environment:
+#       NODE_ENV: development
+#       APP_URL: http://localhost:3000
+#       API_URL: http://localhost:3001
+#       PORT: 3001
+#     volumes:
+#       - ./backend/src:/home/node/app/src
+#     ports:
+#       - 3001:3001
+
 version: '3.0'
 
 services:
   frontend:
-    build: ./frontend
+    # Replace with your image
+    image: ghcr.io/darryl-sw/bootcamp-gds-frontend:c49d191fe1a702b2e3608f74c7c82b6024e06bbe
     command: "npm start"
     environment:
       NODE_ENV: development
       APP_URL: http://localhost:3000
       API_URL: http://backend:3001
-    volumes:
-      - ./frontend/src:/home/node/app/src
     ports:
       - 3000:3000
   
   backend:
-    build: ./backend
+    # Replace with your image
+    image: ghcr.io/darryl-sw/bootcamp-gds-backend:c49d191fe1a702b2e3608f74c7c82b6024e06bbe
     command: "npm start"
     environment:
       NODE_ENV: development
       APP_URL: http://localhost:3000
       API_URL: http://localhost:3001
       PORT: 3001
-    volumes:
-      - ./backend/src:/home/node/app/src
     ports:
       - 3001:3001

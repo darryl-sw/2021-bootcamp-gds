@@ -11,12 +11,6 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJson));
 
 app.use(express.json());
 app.use("/api", TodoRouter);
-app.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*']);
-  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.append('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
 
 export default app.listen(port, () => {
   console.log(`Backend app listening at http://localhost:${port}`);
