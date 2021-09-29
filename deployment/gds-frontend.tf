@@ -65,8 +65,8 @@ resource "aws_s3_bucket_object" "react_frontend_build_js" {
   }
   bucket  = aws_s3_bucket.react_frontend.bucket
   key     = each.value
-  content = replace(file("../frontend/build/${each.value}"), "$${TF_ENDPOINT_INPUT}", "http://replaceme.com/api")
-  etag    = md5(replace(file("../frontend/build/${each.value}"), "$${TF_ENDPOINT_INPUT}", "http://replaceme.com/api"))
+  content = replace(file("../frontend/build/${each.value}"), "$${TF_ENDPOINT_INPUT}", "http://${aws_instance.gds_backend_ec2.public_ip}/api")
+  etag    = md5(replace(file("../frontend/build/${each.value}"), "$${TF_ENDPOINT_INPUT}", "http://${aws_instance.gds_backend_ec2.public_ip}/api"))
   content_type = "text/html"
 }
 
